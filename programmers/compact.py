@@ -1,0 +1,35 @@
+from collections import deque
+
+
+def solution(msg):
+    answer = []
+    """
+    index = {'A': 1, 'B': 2, 'C': 3, 'D': 4, 'E': 5, 'F': 6, 'G': 7, 'H': 8, 'I': 9, 'J': 10,
+             'K': 11, 'L': 12, 'M': 13, 'N': 14, 'O': 15, 'P': 16, 'Q': 17, 'R': 18, 'S': 19,
+             'T': 20, 'U': 21, 'V': 22, 'W': 23, 'X': 24, 'Y': 25, 'Z': 26}
+    """
+    # ->
+    index = {}
+    for i in range(26):
+        index[chr(65+i)] = i+1
+
+    q = deque(msg)
+
+    keyNum = 27
+    now = ""
+    while q:
+        #
+        if q and str(now + q[0]) in index.keys():
+            now += q.popleft()
+            continue
+        else:
+            if q:
+                index[str(now + q[0])] = keyNum
+            answer.append(index[now])
+            keyNum += 1
+            if q:
+                now = q.popleft()
+
+    if len(now) > 0:
+        answer.append(index[now])
+    return answer
