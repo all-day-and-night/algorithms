@@ -7,7 +7,6 @@ answer = [0] * N
 stack = []
 
 for i in range(N-1, -1, -1):
-    print(i, stack)
     while stack and stack[-1] <= data[i]:
         stack.pop()
 
@@ -15,5 +14,8 @@ for i in range(N-1, -1, -1):
         answer[i] = stack[-1]
     else:
         answer[i] = -1
+
     stack.append(data[i])
-print(answer)
+
+for i in answer:
+    print(i, end=' ')
