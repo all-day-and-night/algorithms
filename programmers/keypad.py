@@ -29,9 +29,9 @@ def solution(numbers, hand):
         else:
             if num == 0:
                 num = 11
-            left_idx = getIdx(lef t -1)
-            right_idx = getIdx(righ t -1)
-            now_idx = getIdx(nu m -1)
+            left_idx = getIdx(left -1)
+            right_idx = getIdx(right -1)
+            now_idx = getIdx(num -1)
 
             left_dist = getDistance(now_idx, left_idx)
             right_dist = getDistance(now_idx, right_idx)
