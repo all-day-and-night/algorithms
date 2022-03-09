@@ -7,6 +7,7 @@ def get_prime(v):
     return True
 
 
+
 N = int(input())
 
 primes = [[] for _ in range(N+1)]
