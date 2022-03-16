@@ -1,4 +1,41 @@
-from collections import deque
+from collections import defaultdict, deque
+
+T = int(input())
+
+for _ in range(T):
+    N = int(input())
+    parents = {}
+
+    for i in range(N-1):
+        a, b = map(int, input().split())
+        parents[b] = a
+
+    x, y = map(int, input().split())
+
+    x_parent = set()
+
+    cur = x
+    x_parent.add(x)
+    while cur in parents.keys():
+        x_parent.add(parents[cur])
+        cur = parents[cur]
+
+    cur = y
+    if cur in x_parent:
+        print(cur)
+        continue
+
+    while cur in parents.keys():
+        if parents[cur] in x_parent:
+            print(parents[cur])
+            break
+        cur = parents[cur]
+
+
+
+
+
+"""from collections import deque
 
 def sol(T):
     graph_child = {}
@@ -45,4 +82,4 @@ for _ in range(N):
     answer.append(sol(T))
 
 for ans in answer:
-    print(ans)
+    print(ans)"""
