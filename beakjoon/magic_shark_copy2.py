@@ -26,20 +26,43 @@ visited = [[False]*4 for _ in range(4)]
 def solv():
     global path, max_fish_count
     for now in range(s):
+        print("shark")
+        print(sx, sy)
+        print("origin")
+        for fish in fish_board:
+            for f in fish:
+                print(f[0], end=' ')
+            print()
+        print()
         start_copy_fish()
 
         move_target = move_fish()
         renew_fish_board(move_target)
-
+        print("move fish")
+        for fish in fish_board:
+            for f in fish:
+                print(f[0], end=' ')
+            print()
+        print()
         path = []
         max_fish_count = -1
 
         select_move_shark_path(sx,sy,0,0,[])
         move_shark()
+        print("move shark")
+        for fish in fish_board:
+            for f in fish:
+                print(f[0], end=' ')
+            print()
+        print()
 
+        print("smell")
         reduce_smell()
-
+        for smell in smell_board:
+            print(smell)
+        print()
         end_copy_fish()
+        print("done")
         for fish in fish_board:
             for f in fish:
                 print(f[0], end=' ')
